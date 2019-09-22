@@ -17,4 +17,9 @@ class HomeController extends Controller
         $data['products'] = Product::all();
         return view('home',$data);
     }
+    public function getUser()
+    {
+        $products = Product::all();
+        return response()->json(json_encode($products));
+    }
 }
