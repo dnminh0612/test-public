@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
@@ -20,6 +21,9 @@ class HomeController extends Controller
     public function getUser()
     {
         $products = Product::all();
+        foreach ($products as $key => $product){
+            $products[$key]['image'] =  Storage::url($product->image);
+        }
         return response()->json($products);
     }
 }
