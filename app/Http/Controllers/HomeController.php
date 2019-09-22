@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-       dd( Product::all());
-        return view('home');
+        $data['products'] = Product::all();
+        return view('home',$data);
     }
 }
