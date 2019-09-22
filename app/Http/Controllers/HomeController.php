@@ -20,6 +20,6 @@ class HomeController extends Controller
     public function getUser()
     {
         $products = Product::all();
-        return response()->json(json_encode($products));
+        return response()->json($products);
     }
 }
